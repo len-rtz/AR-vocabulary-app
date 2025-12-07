@@ -1,0 +1,9 @@
+session_id,participant_id,marker_id,object_name,target_word,modality,phase,timestamp
+1,1,APPLE_ID_2,apple,măr,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:24:25
+2,1,APPLE_ID_2,apple,măr,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:25:00
+3,1,APPLE_ID_2,apple,măr,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:26:57
+4,1,APPLE_ID_2,apple,măr,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:34:40
+5,1,SHOES_ID_3,shoes,pantofi,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:35:57
+6,1,SHOES_ID_3,shoes,pantofi,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:39:08
+7,1,SHOES_ID_3,shoes,pantofi,TRADITIONAL_TEXT_AUDIO,experiment,2025-12-07 10:49:41
+8,1,CUP_ID_1,cup,cupă,AR_TEXT_AUDIO,experiment,2025-12-07 10:51:23
