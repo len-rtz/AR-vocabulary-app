@@ -135,7 +135,7 @@ def export_to_csv():
     recalls_df = pd.read_sql_query("SELECT * FROM recall_attempts", conn)
     recalls_df.to_csv("export_recall_attempts.csv", index=False)
     
-    # Create combined view
+    # Create combined view - FIXED QUERY
     query = """
         SELECT 
             p.participant_id,
@@ -153,10 +153,10 @@ def export_to_csv():
             ra.recall_id,
             ra.audio_file_path,
             ra.timestamp as voice_recorded_at
-        FROM participants p
-        LEFT JOIN translation_sessions ts ON p.participant_id = ts.participant_id
+        FROM translation_sessions ts
+        LEFT JOIN participants p ON ts.participant_id = p.participant_id
         LEFT JOIN recall_attempts ra ON ts.session_id = ra.session_id
-        ORDER BY p.participant_id, ts.timestamp
+        ORDER BY ts.participant_id, ts.timestamp
     """
     combined_df = pd.read_sql_query(query, conn)
     combined_df.to_csv("export_combined_data.csv", index=False)

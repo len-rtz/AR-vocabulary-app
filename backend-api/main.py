@@ -154,8 +154,8 @@ async def recall(
             f.write(contents)
         
         file_size_kb = len(contents) / 1024
-        print(f"🎤 Voice recorded: {filename}")
-        print(f"   Size: {file_size_kb:.1f} KB")
+        print(f"Voice recorded: {filename}")
+        print(f"Size: {file_size_kb:.1f} KB")
         
     except Exception as e:
         raise HTTPException(

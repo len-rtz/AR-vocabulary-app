@@ -14,7 +14,7 @@ const bool USE_MOCK_DATA = false; // Set to FALSE for real backend
 
 // Ensure your computer and phone are on the same network.
 // Replace with your actual local IP address.
-const String BASE_BACKEND_URL = 'http://172.20.10.3:8000';
+const String BASE_BACKEND_URL = 'http://172.20.10.14:8000';
 const String TRANSLATE_ENDPOINT = '$BASE_BACKEND_URL/translate';
 const String RECALL_ENDPOINT = '$BASE_BACKEND_URL/recall';
 
@@ -53,11 +53,12 @@ class _ScannerScreenState extends State<ScannerScreen> {
   final MobileScannerController scannerController = MobileScannerController();
   final FlutterTts flutterTts = FlutterTts();
   final recorder = AudioRecorder();
-  final int _participantId = 1; // or your real participant ID
+  final int _participantId = 2; // or your real participant ID
 
   // Variables updated via setState()
   String _currentWord = '';
   String _currentModality = '';
+  int? _currentSessionId; 
   // Added to store marker ID for recall submission
   String _currentMarkerId = ''; 
   bool _isRecording = false;
@@ -106,6 +107,10 @@ class _ScannerScreenState extends State<ScannerScreen> {
   void _handleScan(String markerId) async {
     logger.d('RAW DETECTED VALUE: $markerId');
 
+    setState(() {
+    _currentMarkerId = markerId;
+  });
+
     String targetWord = '';
     String modality = '';
 
@@ -138,6 +143,8 @@ class _ScannerScreenState extends State<ScannerScreen> {
           final data = jsonDecode(response.body);
           targetWord = data['target_word'];
           modality = data['modality'];
+          _currentSessionId = data['session_id'];
+          logger.i('Session ID captured: $_currentSessionId');
           logger.i('LIVE: Translation received successfully.');
         } else {
           logger.e('API Error ${response.statusCode}: Failed to fetch translation.');
@@ -217,8 +224,6 @@ class _ScannerScreenState extends State<ScannerScreen> {
     return;
   }
 
-   
-
   final hasPermission = await recorder.hasPermission();
   if (!hasPermission) {
     logger.e('Microphone permission denied.');
@@ -264,15 +269,20 @@ class _ScannerScreenState extends State<ScannerScreen> {
     var request = http.MultipartRequest("POST", uri)
       ..fields["target_word"] = _currentWord
       ..fields["marker_id"] = _currentMarkerId
-      ..fields["participant_id"] = "0"           // or your real participant ID
-      ..fields["session_id"] = "0"               // or your real session ID
-      ..files.add(
-        await http.MultipartFile.fromPath(
-          "audio_file",        // must match FastAPI parameter name
-          recordedPath,
-          contentType: MediaType("audio", "m4a"),
-        ),
-      );
+      ..fields["participant_id"] = _participantId.toString();
+
+    // Only add session_id if we have it
+    if (_currentSessionId != null) {
+      request.fields["session_id"] = _currentSessionId.toString();
+      }
+
+    request.files.add(
+      await http.MultipartFile.fromPath(
+        "audio_file",
+        recordedPath,
+        contentType: MediaType("audio", "m4a"),
+      ),
+    );
 
     logger.i("Uploading recall audio...");
 
@@ -381,7 +391,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   // }
   void _showFeedback(double accuracy, String transcription) {
   String feedbackMessage = accuracy > 0.8
-      ? 'Correct! Accuracy: ${(accuracy * 100).toStringAsFixed(0)}%'
+      ? 'Audio received, thank you!'
       : 'Try again. Heard: "$transcription"';
 
   if (!mounted) return;
@@ -505,7 +515,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
             padding: const EdgeInsets.all(8),
             color: Colors.black54,
             child: Text(
-              'Last Recall: ${_sessionStats.first['word']} (${(_sessionStats.first['accuracy'] * 100).toStringAsFixed(0)}%)',
+              'Last Recall: ${_sessionStats.first['word']}',
               style: const TextStyle(color: Colors.white, fontSize: 14),
             ),
           ),
