@@ -53,7 +53,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   final MobileScannerController scannerController = MobileScannerController();
   final FlutterTts flutterTts = FlutterTts();
   final recorder = AudioRecorder();
-  final int _participantId = 2; // or your real participant ID
+  final int _participantId = 1; // or your real participant ID
 
   // Variables updated via setState()
   String _currentWord = '';

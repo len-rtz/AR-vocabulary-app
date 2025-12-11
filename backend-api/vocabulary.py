@@ -26,22 +26,22 @@ VOCABULARY_DB = {
         "phase": "practice"
     },
     
-    # EXPERIMENTAL PHASE (text only, 3 items)
+    # EXPERIMENTAL PHASE (text + audio + AR, 3 items)
     "CUP_ID_1": {
         "target_word": "cupă",
-        "modality": "AR_TEXT_AUDIO",  # Text only
+        "modality": "AR_TEXT_AUDIO",  
         "object_name": "cup",
         "phase": "experiment"
     },
     "APPLE_ID_2": {
         "target_word": "măr",
-        "modality": "TRADITIONAL_TEXT_AUDIO",  # Text only
+        "modality": "AR_TEXT_AUDIO",  
         "object_name": "apple",
         "phase": "experiment"
     },
     "SHOES_ID_3": {
         "target_word": "pantofi",
-        "modality": "TRADITIONAL_TEXT_AUDIO",  # Text only
+        "modality": "AR_TEXT_AUDIO",  
         "object_name": "shoes",
         "phase": "experiment"
     },
@@ -49,19 +49,19 @@ VOCABULARY_DB = {
     # EXPERIMENTAL PHASE (text + audio, 3 items)
     "SPOON_ID_4": {
         "target_word": "lingură",
-        "modality": "AR_TEXT_AUDIO",  # Text + audio
+        "modality": "TRADITIONAL_TEXT_AUDIO",  
         "object_name": "spoon",
         "phase": "experiment"
     },
     "CUCUMBER_ID_5": {
         "target_word": "castravete",
-        "modality": "AR_TEXT_AUDIO",  # Text + audio
+        "modality": "TRADITIONAL_TEXT_AUDIO",  
         "object_name": "cucumber",
         "phase": "experiment"
     },
     "JACKET_ID_6": {
         "target_word": "jachetă",
-        "modality": "AR_TEXT_AUDIO",  # Text + audio
+        "modality": "TRADITIONAL_TEXT_AUDIO",  
         "object_name": "jacket",
         "phase": "experiment"
     }
