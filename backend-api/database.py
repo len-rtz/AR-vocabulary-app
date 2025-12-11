@@ -21,6 +21,7 @@ def init_database():
             participant_id INTEGER PRIMARY KEY AUTOINCREMENT,
             age INTEGER,
             gender TEXT,
+            nationality TEXT,
             language_experience TEXT,
             condition_order TEXT,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
