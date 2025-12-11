@@ -20,7 +20,7 @@ VOCABULARY_DB = {
         "phase": "practice"
     },
     "PRACTICE_GLOVES": {
-        "target_word": "mănuși",
+        "target_word": "mânuși",
         "modality": "AR_TEXT_AUDIO",
         "object_name": "gloves",
         "phase": "practice"

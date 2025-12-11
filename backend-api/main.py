@@ -55,8 +55,8 @@ async def root():
         "message": "AR Vocabulary Learning Experiment Backend",
         "experiment_design": {
             "practice_items": 3,
-            "text_only_items": 3,
-            "text_audio_items": 3,
+            "traditional_items": 3,
+            "AR_items": 3,
             "total_qr_codes": len(get_all_marker_ids())
         }
     }
