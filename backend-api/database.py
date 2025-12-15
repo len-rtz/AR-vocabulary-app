@@ -63,7 +63,7 @@ def init_database():
     print("Database initialized.")
 
 
-def register_participant(age: int, gender: str, language_experience: str, 
+def register_participant(age: int, gender: str, nationality: str, language_experience: str, 
                         condition_order: str) -> int:
     """Register a new participant and return their ID"""
     conn = sqlite3.connect(DB_PATH)

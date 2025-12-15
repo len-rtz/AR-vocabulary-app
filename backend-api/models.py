@@ -31,6 +31,7 @@ class ParticipantRequest(BaseModel):
     """Request to register new participant"""
     age: int
     gender: str
+    nationality: str
     language_experience: str
     condition_order: str  # "text_first" or "audio_first"
 

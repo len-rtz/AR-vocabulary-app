@@ -1,0 +1,12 @@
+participant_id,age,gender,nationality,language_experience,condition_order,created_at
+"1,27,f,,""German, English, French"",tradtional-first,2025-12-15 18:20:50"
+"2,26,f,,""Hindi, English, French"",tradtional-first,2025-12-15 18:21:15"
+"3,24,f,,""Italian, English"",tradtional-first,2025-12-15 18:21:44"
+"4,24,f,,""Serbian, English"",tradtional-first,2025-12-15 18:22:04"
+"5,23,m,,""Arabic, English, French, German"",tradtional-first,2025-12-15 18:22:26"
+"6,23,m,,""Catalan, Spanish, English, French, German"",ar-first,2025-12-15 18:23:06"
+"7,23,m,,""Italian, English"",ar-first,2025-12-15 18:23:22"
+"8,23,m,,""Italian, English, Spanish, German"",ar-first,2025-12-15 18:23:36"
+"9,27,m,,""Swedish, English"",ar-first,2025-12-15 18:23:57"
+"10,23,m,,""Turkish, English, French"",ar-first,2025-12-15 18:24:15"
+"11,24,f,,""Italian, English, Spanish"",tradtional-first,2025-12-15 18:24:38"

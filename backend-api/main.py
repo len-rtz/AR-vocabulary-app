@@ -71,6 +71,7 @@ async def register_participant_endpoint(request: ParticipantRequest):
     participant_id = register_participant(
         age=request.age,
         gender=request.gender,
+        nationality=request.nationality,
         language_experience=request.language_experience,
         condition_order=request.condition_order
     )

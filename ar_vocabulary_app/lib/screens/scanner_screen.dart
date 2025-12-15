@@ -13,7 +13,7 @@ import 'package:http_parser/http_parser.dart';
 const bool USE_MOCK_DATA = false; // Set to FALSE for real backend
 
 // Ensure your computer and phone are on the same network.
-// Replace with your actual local IP address.
+// Replace with your actual local IP afluddress.
 const String BASE_BACKEND_URL = 'http://172.20.10.14:8000';
 const String TRANSLATE_ENDPOINT = '$BASE_BACKEND_URL/translate';
 const String RECALL_ENDPOINT = '$BASE_BACKEND_URL/recall';
@@ -53,7 +53,7 @@ class _ScannerScreenState extends State<ScannerScreen> {
   final MobileScannerController scannerController = MobileScannerController();
   final FlutterTts flutterTts = FlutterTts();
   final recorder = AudioRecorder();
-  final int _participantId = 1; // or your real participant ID
+  final int _participantId = 11; // or your real participant ID
 
   // Variables updated via setState()
   String _currentWord = '';
